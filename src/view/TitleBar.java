@@ -1,5 +1,5 @@
 package view;
-import javafx.scene.control.Button;
+import controller.ViewMediator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -10,8 +10,10 @@ public class TitleBar {
     private static final String PLUS = "+";
 
     private Pane myTitleBar;
+    private ViewMediator myMediator;
 
-    public TitleBar(){
+    public TitleBar(ViewMediator mediator){
+        myMediator = mediator;
         myTitleBar = new HBox();
         addTitleText();
         addAddNewPersonButton();
@@ -23,7 +25,7 @@ public class TitleBar {
     }
 
     private void addAddNewPersonButton(){
-        AddNewPersonButton addPerson = new AddNewPersonButton(PLUS);
+        AddNewPersonButton addPerson = new AddNewPersonButton(PLUS, myMediator);
         myTitleBar.getChildren().add(addPerson.getButton());
     }
 

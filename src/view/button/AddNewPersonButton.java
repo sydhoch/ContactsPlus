@@ -1,17 +1,21 @@
 package view.button;
 
 
-import javafx.scene.control.Button;
+import controller.ViewMediator;
 import view.AddPersonPopUp;
-import view.PersonTab;
+import view.PopUpDisplay;
 
 public class AddNewPersonButton extends ButtonDisplay{
-    public AddNewPersonButton(String name){
+    ViewMediator myMediator;
+    PopUpDisplay myPopUp;
+    public AddNewPersonButton(String name, ViewMediator mediator){
         super(name);
+        myMediator = mediator;
+        myPopUp = new AddPersonPopUp();
     }
 
     @Override
     public void onClick() {
-        AddPersonPopUp addPersonPopUp = new AddPersonPopUp();
+        myMediator.pop(myPopUp);
     }
 }

@@ -12,7 +12,8 @@ public class Driver extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("Contacts Plus");
         Group root = new Group();
-        TitleBar titleBar= new TitleBar();
+        ViewMediator mediator = new ViewMediator(stage);
+        TitleBar titleBar= new TitleBar(mediator);
         root.getChildren().add(titleBar.getTitleBar());
         Scene scene = new Scene(root, 600, 600);
         stage.setScene(scene);
